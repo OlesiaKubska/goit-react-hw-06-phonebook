@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from "redux/contactsSlice";
 import { selectAllContacts } from "redux/selectors";
@@ -66,8 +65,4 @@ export const ContactForm = () => {
             <Button type="submit">Add Contact</Button>
         </Form>
     );
-};
-
-ContactForm.propTypes = {
-    addContact: PropTypes.func.isRequired,
 };
