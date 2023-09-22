@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { addContact } from "redux/contactsSlice";
-import { selectAllContacts } from "redux/selectors";
 
 import {
     Form,
@@ -13,7 +12,6 @@ import {
 export const ContactForm = () => {
     const [formData, setFormData] = useState({ name: '', number: '' });
 
-    const contacts = useSelector(selectAllContacts);
     const dispatch = useDispatch();
 
     const handleChange = (e) => {
