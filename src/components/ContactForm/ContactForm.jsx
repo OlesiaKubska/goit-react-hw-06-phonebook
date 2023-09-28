@@ -25,7 +25,13 @@ export const ContactForm = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        dispatch(addContact(formData.name, formData.number));
+        const newContact = {
+            name: formData.name,
+            number: formData.number,
+            id: Date.now(),
+        }
+
+        dispatch(addContact(newContact));
         
         setFormData({ name: '', number: '' });
     };
@@ -39,7 +45,7 @@ export const ContactForm = () => {
                 <Input
                     type="text"
                     name="name"
-                    pattern="^[a-zA-Za-яА-Я]+(([' \-][a-npm install --save-dev @babel/plugin-proposal-private-property-in-objectzA-Za-яА-Я ])?[a-zA-Za-яА-Я]*)*$"
+                    pattern="^[a-zA-Za-яА-Я]+([' \-][a-zA-Za-яА-Я]+)*$"
                     title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
                     required
                     value={formData.name}
