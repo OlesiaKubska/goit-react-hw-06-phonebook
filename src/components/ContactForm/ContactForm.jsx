@@ -11,7 +11,6 @@ import {
 
 export const ContactForm = () => {
     const [formData, setFormData] = useState({ name: '', number: '' });
-
     const dispatch = useDispatch();
 
     const handleChange = (e) => {
@@ -24,14 +23,7 @@ export const ContactForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
-        const newContact = {
-            name: formData.name,
-            number: formData.number,
-            id: Date.now(),
-        }
-
-        dispatch(addContact(newContact));
+        dispatch(addContact(formData.name, formData.number));
         
         setFormData({ name: '', number: '' });
     };
@@ -39,9 +31,9 @@ export const ContactForm = () => {
     return (
         <Form onSubmit={handleSubmit}>
             <Label>
-                <Label>
+                <span>
                     Name
-                </Label>
+                </span>
                 <Input
                     type="text"
                     name="name"
@@ -53,9 +45,9 @@ export const ContactForm = () => {
                 />
             </Label>
             <Label>
-                <Label>
+                <span>
                     Number
-                </Label>
+                </span>
                 <Input
                     type="tel"
                     name="number"
