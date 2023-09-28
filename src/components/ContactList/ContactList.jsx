@@ -12,16 +12,12 @@ export const ContactList = () => {
     const contacts = useSelector(selectFilteredContacts); 
     const dispatch = useDispatch();
 
-    const handleDelete = (id) => {
-        dispatch(deleteContact(id));
-    };
-    
     return (
         <ContactListContainer>
             {contacts.map((contact) => (
                 <ContactListItem key={contact.id}>
                     {contact.name} - {contact.number}
-                    <DeleteButton type="button" onClick={() => handleDelete(contact.id)}>
+                    <DeleteButton type="button" onClick={() => dispatch(deleteContact(contact.id))}>
                         Delete
                     </DeleteButton>
                 </ContactListItem>
